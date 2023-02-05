@@ -31,9 +31,9 @@ fn render_file(chars: Vec<char>, index: &mut usize) {
     let mut code = String::new();
 
     loop {
-        if chars[*index] == '`' {
-            if chars[*index..*index+delimiter_len].iter().all(|x| *x == '`') {
-                *index += delimiter_len;
+        if chars[*index] == '\n' {
+            if chars[*index+1..*index+delimiter_len+1].iter().all(|x| *x == '`') {
+                *index += delimiter_len + 1;
                 break;
             }
         }
